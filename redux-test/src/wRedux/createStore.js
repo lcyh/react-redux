@@ -19,6 +19,7 @@ function createStore(reducer, enchace) {
   }
   function subscribe(listener) {
     currentListeners.push(listener);
+    // 取消监听
     return () => {
       const index = currentListeners.indexOf(listener);
       currentListeners.splice(index, 1);
@@ -37,3 +38,12 @@ function createStore(reducer, enchace) {
 }
 
 export default createStore;
+
+// function fn1() {}
+// function fn2() {}
+// function fn3() {}
+// let arr = [fn1, fn2, fn3];
+// let index = arr.indexOf(fn2);
+// console.log("index", index, arr);
+// arr.splice(index, 1);
+// console.log("newArr", arr);
